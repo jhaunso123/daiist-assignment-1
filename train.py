@@ -46,7 +46,7 @@ CONFIG = {
     #   "post_first_round" : + timing of the first round
     #   "lifetime"         : + all funding/traction columns, which are totals
     #                        up to ~2013 and so include the future (leaky)
-    "meeting_stage": "post_first_round",
+    "meeting_stage": "pre_funding",
 
     # (2) Split. "random" = stratified shuffle; "time" = oldest 60% of
     #     companies (by founding date) train, next 20% validate, newest 20% test.
@@ -57,11 +57,11 @@ CONFIG = {
 
     # 46 rows were funded "before" they were founded (negative ages).
     #   "drop" | "clip" (set to 0) | "flag_and_clip" (clip + 0/1 indicator)
-    "negative_age": "flag_and_clip",
+    "negative_age": "drop",
 
     # (3) Cost of each mistake, in "partner-meeting units".
     "cost_wasted_meeting": 1.0,   # false positive: met a startup that closed
-    "cost_missed_winner": 3.0,    # false negative: passed on one that got acquired
+    "cost_missed_winner": 5.0,    # false negative: passed on one that got acquired
 
     # (4) Engineered-feature switches (only those valid for the stage are used).
     "features": {
